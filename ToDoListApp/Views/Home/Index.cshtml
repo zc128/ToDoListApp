@@ -1,0 +1,106 @@
+﻿@*@{
+        ViewData["Title"] = "Home Page";
+    }
+
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+@model IEnumerable<ToDoListApp.Models.ToDoItem>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>To Do List</h1>
+<p>
+    <a asp-action="Create">Add a New Task</a>
+</p>
+<div style="display: inline-flex;">
+    <table class="table" style="width:600px; margin-right:50px;">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserEmail)
+                </th>
+                <th>
+                    Completed Task
+                </th>
+                <th>
+                    Status
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                @if (item.Done)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Done)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ToDoItemID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ToDoItemID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ToDoItemID">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <table class="table" style="width: 600px">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserEmail)
+                </th>
+                <th>
+                    Next Due Task
+                </th>
+                <th>
+                    Status
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+
+                @if (!item.Done)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.UserEmail)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Title)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Done)
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.ToDoItemID">Edit</a> |
+                            <a asp-action="Details" asp-route-id="@item.ToDoItemID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ToDoItemID">Delete</a>
+                            <form asp-action="Done">
+                                <input type="submit" value="Done" class="btn btn-primary" />
+                            </form>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
