@@ -19,7 +19,7 @@
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Title)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class = "col-sm-10" id="titleID">
             @Html.DisplayFor(model => model.Title)
         </dd>
         <dt class = "col-sm-2">
@@ -55,7 +55,14 @@
         </dd>
     </dl>
 </div>
+<dialog id="clipboardPerms">
+    <h4>We need permission for accessing your clipboard</h4>
+</dialog>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ToDoItemID">Edit</a> |
     <a asp-action="Index">Back to List</a>
+    <input type="button" hidden id="copyToClipboard" value="Copy Title to Clipboard" />
 </div>
+<dialog id="copyTitleSuccess">
+    <h3>Copied current To-Do title to clipboard successfully!</h3>
+</dialog>

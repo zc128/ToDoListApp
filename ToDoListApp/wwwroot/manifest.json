@@ -1,0 +1,14 @@
+{
+  "name": "ToDoList",
+  "short_name": "ToDo",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "icons": [
+    {
+      "sizes": "144x144",
+      "type": "image/png",
+      "src": "https://pics.freeicons.io/uploads/icons/png/15447218331582994871-512.png"
+    }
+  ]
+}
