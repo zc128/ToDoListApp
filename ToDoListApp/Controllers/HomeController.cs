@@ -164,7 +164,6 @@ namespace ToDoListApp.Controllers
                     toDoItem.UserEmail = User.Identity.Name;
                     toDoItem.DoneDate = DateTime.Now.ToString();
                     toDoItem.Done = true;
-                    toDoItem.Title = toDoItem.Title;
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
