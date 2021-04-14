@@ -191,33 +191,6 @@ namespace ToDoListApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        // GET: ToDoItems/Delete/5
-        //public async Task<IActionResult> Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    var toDoItem = await _context.ToDoItems
-        //        .FirstOrDefaultAsync(m => m.ToDoItemID == id);
-        //    if (toDoItem == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(toDoItem);
-        //}
-        // POST: ToDoItems/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var toDoItem = await _context.ToDoItems.FindAsync(id);
-        //    _context.ToDoItems.Remove(toDoItem);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
-
         private bool ToDoItemExists(int id)
         {
             return _context.ToDoItems.Any(e => e.ToDoItemID == id);
@@ -235,3 +208,32 @@ namespace ToDoListApp.Controllers
 
     }
 }
+
+
+
+// GET: ToDoItems/Delete/5
+//public async Task<IActionResult> Delete(int? id)
+//{
+//    if (id == null)
+//    {
+//        return NotFound();
+//    }
+
+//    var toDoItem = await _context.ToDoItems
+//        .FirstOrDefaultAsync(m => m.ToDoItemID == id);
+//    if (toDoItem == null)
+//    {
+//        return NotFound();
+//    }
+//    return View(toDoItem);
+//}
+// POST: ToDoItems/Delete/5
+//[HttpPost, ActionName("Delete")]
+//[ValidateAntiForgeryToken]
+//public async Task<IActionResult> DeleteConfirmed(int id)
+//{
+//    var toDoItem = await _context.ToDoItems.FindAsync(id);
+//    _context.ToDoItems.Remove(toDoItem);
+//    await _context.SaveChangesAsync();
+//    return RedirectToAction(nameof(Index));
+//}

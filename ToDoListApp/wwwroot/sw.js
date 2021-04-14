@@ -32,21 +32,3 @@ self.addEventListener('fetch', function (event) {
             })
     )
 })
-
-//Cache First
-//self.addEventListener('fetch', function (event) {
-//    event.respondWith(async () => {
-//        if (navigator.onLine) {
-//            return await fetch(event.request);
-//        } else {
-//            caches.match(event.request).then(function (cacheResponse) {
-//                if (cacheResponse) {
-//                    return cacheResponse;
-//                } 
-//            })
-//        }
-//    }
-//   )
-//})
-
-    //.then((netResp) => netResp)
