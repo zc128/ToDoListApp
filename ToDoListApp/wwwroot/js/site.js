@@ -24,11 +24,11 @@ if ('clipboard' in navigator) {
 window.addEventListener('online', $("#createTask").removeAttr('hidden'));
 window.addEventListener('offline', $("#createTask").attr('hidden', true));
 
-//window.addEventListener('online', $("#finishTodo").removeAttr('hidden'));
-//window.addEventListener('offline', $("#finishTodo").attr('hidden', true));
+window.addEventListener('online', $(".finishTodo").removeAttr('hidden'));
+window.addEventListener('offline', $(".finishTodo").attr('hidden', true));
 if (navigator.onLine) {
     $("#createTask").removeAttr('hidden');
-/*    $("#finishTodo").removeAttr('hidden');*/
+    $(".finishTodo").removeAttr('hidden');
 }
 
 

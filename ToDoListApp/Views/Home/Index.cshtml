@@ -33,7 +33,7 @@
                 @foreach (var item in Model)
                 {
 
-                    @if (item.Done)
+                    @if (item.Done && ((Convert.ToDateTime(item.DoneDate) - Convert.ToDateTime(item.AddedDate)).TotalDays <= 1))
                     {
                         <tr>
                             <td>
@@ -79,7 +79,7 @@
                 @foreach (var item in Model)
                 {
 
-                    @if (!item.Done)
+                    @if (!item.Done && ((Convert.ToDateTime(item.DueDate) - Convert.ToDateTime(item.AddedDate)).TotalDays <= 1))
                     {
                         <tr>
                             <td>
@@ -97,7 +97,7 @@
                                 <div style="display:flex">
                                     <form asp-action="Done">
                                         <input type="hidden" value="@item.ToDoItemID" name="ToDoItemID" />
-                                        <input type="submit" value="Done" class="btn btn-primary" />
+                                        <input type="submit" hidden value="Done" class="finishTodo btn btn-primary" />
                                     </form>
                                     <form asp-action="DeleteToDo">
                                         <input type="hidden" value="@item.ToDoItemID" name="ToDoItemID" />

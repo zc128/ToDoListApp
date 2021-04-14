@@ -23,6 +23,9 @@ self.addEventListener('fetch', function (event) {
     event.respondWith(
         fetch(event.request)
             .then(function (networkResponse) {
+                caches.open('v2').then((cache) => {
+                    cache.add(event.request.url);
+                });
                 return networkResponse
             }).catch(function () {
                 return caches.match(event.request)
