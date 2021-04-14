@@ -1,4 +1,3 @@
-###To-Do List###
 To-Do List Pt. 1
 Create a new ASP.Net Core MVC project and include Authentication (Individual Accounts). - 1%
 Create the following models with at least the mentioned fields, use appropriate data types and attributes: - 6%
