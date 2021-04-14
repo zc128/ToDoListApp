@@ -1,14 +1,16 @@
-﻿const cacheName = 'v1';
+﻿const cacheName = 'v2';
 
 function swInstall(event) {
     // Perform install steps
     console.info('Service Worker Installing...');
     event.waitUntil(
-        caches.open('v1').then((cache) => {
+        caches.open('v2').then((cache) => {
             return cache.addAll([
                 './',
+                './home',
                 './css/site.css',
-                './js/site.js'
+                './js/site.js',
+                './favicon.ico'
             ]);
         })
     );
@@ -16,16 +18,32 @@ function swInstall(event) {
 }
 self.addEventListener('install', swInstall);
 
-
-//Cache First
+//NetworkFirst
 self.addEventListener('fetch', function (event) {
     event.respondWith(
-        caches.match(event.request).then(function (cacheResponse) {
-            if (cacheResponse) {
-                return cacheResponse;
-            } else {
-                return fetch(event.request).then((netResp) => netResp)
-            }
-        })
+        fetch(event.request)
+            .then(function (networkResponse) {
+                return networkResponse
+            }).catch(function () {
+                return caches.match(event.request)
+            })
     )
 })
+
+//Cache First
+//self.addEventListener('fetch', function (event) {
+//    event.respondWith(async () => {
+//        if (navigator.onLine) {
+//            return await fetch(event.request);
+//        } else {
+//            caches.match(event.request).then(function (cacheResponse) {
+//                if (cacheResponse) {
+//                    return cacheResponse;
+//                } 
+//            })
+//        }
+//    }
+//   )
+//})
+
+    //.then((netResp) => netResp)

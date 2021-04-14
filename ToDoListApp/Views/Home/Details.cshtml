@@ -61,7 +61,8 @@
 <div>
     <a asp-action="Edit" asp-route-id="@Model.ToDoItemID">Edit</a> |
     <a asp-action="Index">Back to List</a>
-    <input type="button" hidden id="copyToClipboard" value="Copy Title to Clipboard" />
+    <br/>
+    <input type="button" hidden id="copyToClipboard" value="Copy Title to Clipboard" class="btn-success" style="margin-top:20px"/>
 </div>
 <dialog id="copyTitleSuccess">
     <h3>Copied current To-Do title to clipboard successfully!</h3>
